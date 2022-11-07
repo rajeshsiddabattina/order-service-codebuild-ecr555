@@ -58,3 +58,4 @@ artifacts:
   files:
    - imagedefinitions.json
    - target/order-service.jar
+   -- kube-manifests/*
