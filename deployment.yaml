@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/name: demo
+    app.kubernetes.io/instance: cicd-demo-instance
+    app.kubernetes.io/version: '1.0.0'
+    app.kubernetes.io/managed-by: kubectl
+  name: demo-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo
+  template:
+    metadata:
+      labels:
+        app: demo
+    spec:
+      containers:
+        - image: 538648446500.dkr.ecr.us-west-2.amazonaws.com/eks-devops-practise:latest
+          imagePullPolicy: Always
+          name: demo
+          ports:
+            - containerPort: 3000
